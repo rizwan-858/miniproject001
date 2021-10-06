@@ -1,0 +1,16 @@
+.restaurant-list-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+.restaurant-list-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 350px;
+  margin-left: 70px;
+  margin-right: 70px;
+  box-sizing: border-box;
+}
