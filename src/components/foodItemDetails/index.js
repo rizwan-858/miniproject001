@@ -5,7 +5,7 @@ import {AiFillStar} from 'react-icons/ai'
 import './index.css'
 
 import MainContext from '../../context/MainContext'
-import Counter from '../CounterCount'
+import Counter from '../Counter'
 
 class FoodItemDetails extends Component {
   renderCount = name => (

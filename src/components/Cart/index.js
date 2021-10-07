@@ -50,7 +50,7 @@ class Cart extends Component {
               <img
                 className="EmptyImg"
                 alt="empty cart"
-                src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1633225925/tastyKitchen/Layer_2_pt2cfs.png"
+                src="https://res.cloudinary.com/rizwan987/image/upload/v1633272729/cooking_1_cq8czz.png"
               />
               <h1 className="NoOrder">No Orders Yet!</h1>
               <p className="Empty">
@@ -72,8 +72,8 @@ class Cart extends Component {
             <div>
               <div className="PaymentMain">
                 <FaCheckCircle fontSize={45} color="#22C55E" />
-                <h1 className="PayHeading">Payment Successful</h1>
-                <p className="ThankU">
+                <h1 className="PaymentHeading">Payment Successful</h1>
+                <p className="ThankYou">
                   Thank you for ordering <br /> Your payment is successfully
                   completed.
                 </p>
@@ -87,8 +87,8 @@ class Cart extends Component {
           )
         }
         return (
-          <div className="TotalPriceCon">
-            <div className="PriceCon">
+          <div className="TotalPriceContainer">
+            <div className="PriceContainer">
               <ul className="CartHeading">
                 <li>Item</li>
                 <li>Quantity</li>
@@ -127,7 +127,7 @@ class Cart extends Component {
     return (
       <div className="CartMain">
         <Header />
-        <div className="CartCon">{this.renderCart()}</div>
+        <div className="CartContainer">{this.renderCart()}</div>
       </div>
     )
   }

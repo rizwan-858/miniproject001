@@ -1,4 +1,4 @@
-.CartCon {
+.CartContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -97,7 +97,7 @@
   align-items: center;
   height: 100vh;
 }
-.TotalPriceCon {
+.TotalPriceContainer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -107,12 +107,12 @@
   margin-top: 50px;
 }
 @media (max-width: 768px) {
-  .TotalPriceCon {
+  .TotalPriceContainer {
     margin-top: 0;
   }
 }
 
-.PriceCon {
+.PriceContainer {
   width: 80%;
   padding: 20px;
   display: flex;
@@ -120,7 +120,7 @@
   background-color: #f9fbfe;
 }
 @media (max-width: 768px) {
-  .PriceCon {
+  .PriceContainer {
     width: 100%;
     background: #ffffff;
   }
@@ -226,7 +226,7 @@
   }
 }
 
-.PayHeading {
+.PaymentHeading {
   font-family: 'DM Sans';
   font-size: 24px;
   font-style: normal;
@@ -236,7 +236,7 @@
   text-align: center;
 }
 @media (max-width: 768px) {
-  .PayHeading {
+  .PaymentHeading {
     font-family: 'DM Sans';
     font-size: 20px;
     font-style: normal;
@@ -247,7 +247,7 @@
   }
 }
 
-.ThankU {
+.ThankYou {
   font-family: 'DM Sans';
   font-size: 16px;
   font-style: normal;
@@ -257,7 +257,7 @@
   text-align: center;
 }
 @media (max-width: 768px) {
-  .ThankU {
+  .ThankYou {
     font-family: 'DM Sans';
     font-size: 14px;
     font-style: normal;

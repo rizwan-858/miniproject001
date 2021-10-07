@@ -16,7 +16,7 @@ class Counter extends Component {
   render() {
     const {count} = this.props
     return (
-      <div className="btnCon">
+      <div className="btnContainer">
         <button
           data-testid="decrement-count"
           className="btn"

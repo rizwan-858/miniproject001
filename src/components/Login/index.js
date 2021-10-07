@@ -66,22 +66,22 @@ class Login extends Component {
           <img
             className="smallLander"
             alt="website logo"
-            src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1632741497/tastyKitchen/Rectangle_1457_g9q8hv.png"
+            src="https://res.cloudinary.com/rizwan987/image/upload/v1633272580/Rectangle_1457_m5lm0c.png"
           />
         </div>
-        <div className="loginCon">
-          <div className="formCon">
+        <div className="loginContainer">
+          <div className="formContainer">
             <form onSubmit={this.onSubmitForm}>
-              <div className="logoCon">
+              <div className="logoContainer">
                 <img
                   alt="website logo"
-                  src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1632732181/tastyKitchen/Group_7420_vfqhmf.png"
+                  src="https://res.cloudinary.com/rizwan987/image/upload/v1633174126/Frame_274_arvvzt.png"
                 />
                 <h1 className="logoName">Tasty Kitchens</h1>
                 <h1 className="loginName">Login</h1>
               </div>
 
-              <div className="inputCon">
+              <div className="inputContainer">
                 <label htmlFor="username">USERNAME</label>
                 <input
                   onChange={this.onEnterUsername}
@@ -91,7 +91,7 @@ class Login extends Component {
                   id="username"
                 />
               </div>
-              <div className="inputCon">
+              <div className="inputContainer">
                 <label htmlFor="password">PASSWORD</label>
                 <input
                   onChange={this.onEnterPassword}
@@ -112,7 +112,7 @@ class Login extends Component {
           <img
             className="landerImg"
             alt="website login"
-            src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1632732192/tastyKitchen/Rectangle_1456_enpzse.png"
+            src="https://res.cloudinary.com/rizwan987/image/upload/v1633170425/Rectangle_1456_gmu29p.png"
           />
         </div>
       </div>
@@ -120,4 +120,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

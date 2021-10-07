@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {BiRupee} from 'react-icons/bi'
-import CounterQuantity from '../CounterQuantity'
+import Counter from '../Counter'
 import MainContext from '../../context/MainContext'
 import './index.css'
 
@@ -20,7 +20,7 @@ class CartItem extends Component {
         const itemInCart = cartList.filter(each => each.name === name)
 
         return (
-          <CounterQuantity
+          <Counter
             id={itemInCart[0].id}
             incCount={incItemCount}
             decCount={decItemCount}

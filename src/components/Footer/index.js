@@ -16,7 +16,7 @@ class Footer extends Component {
           <img
             className="FooterLogo"
             alt="website-footer-logo"
-            src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1633020655/tastyKitchen/Group_7420_ervtdz.png"
+            src="https://res.cloudinary.com/rizwan987/image/upload/v1633272401/footerLogo_btgo3d.png"
           />
           <h1>Tasty Kitchen</h1>
         </div>

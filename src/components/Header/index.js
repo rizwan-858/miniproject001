@@ -35,7 +35,7 @@ class Header extends Component {
                 className="LogoImg"
                 width={40}
                 alt="website logo"
-                src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1632732181/tastyKitchen/Group_7420_vfqhmf.png"
+                src="https://res.cloudinary.com/rizwan987/image/upload/v1633174126/Frame_274_arvvzt.png"
               />
               <h1 className="LogoTitle">Tasty Kitchens</h1>
             </div>
