@@ -1,138 +1,134 @@
 import {Component} from 'react'
-
-import {withRouter} from 'react-router-dom'
-
-import {FaRupeeSign} from 'react-icons/fa'
-
+import {withRouter, Link} from 'react-router-dom'
+import {BiRupee} from 'react-icons/bi'
+import {FaCheckCircle} from 'react-icons/fa'
+import MainContext from '../../context/MainContext'
 import Header from '../Header'
-
 import Footer from '../Footer'
-
 import CartItem from '../CartItem'
 
 import './index.css'
 
 class Cart extends Component {
-  state = {totalAmount: 0, getFoodItemsData: null}
-
-  componentDidMount() {
-    const getFoodItemsList = localStorage.getItem('food_items')
-
-    const foodItemsList = JSON.parse(getFoodItemsList)
-
-    this.setState({getFoodItemsData: foodItemsList})
+  state = {
+    orderPlace: false,
   }
 
-  showTotalAmount = () => {
-    const {getFoodItemsData} = this.state
-
-    const amountList = getFoodItemsData.map(eachItem => eachItem.foodCost)
-
-    const amount = amountList.reduce((a, b) => a + b)
-    this.setState({totalAmount: amount})
-  }
-
-  updatedAddTotalAmount = amount => {
-    this.setState(prevState => ({totalAmount: prevState.totalAmount + amount}))
-  }
-
-  updatedSubTotalAmount = amount => {
-    this.setState(prevState => ({totalAmount: prevState.totalAmount - amount}))
-  }
-
-  onClickConfirm = () => {
-    localStorage.removeItem('food_items')
-
+  onOrderNow = () => {
     const {history} = this.props
-
-    history.replace('/payment-successful')
-  }
-
-  orderNowClicked = () => {
-    const {history} = this.props
-
     history.replace('/')
   }
 
-  renderEmptyCart = () => (
-    <div className="empty-card-container">
-      <img
-        src="https://res.cloudinary.com/rizwan987/image/upload/v1633272729/cooking_1_cq8czz.png"
-        alt="cooking"
-        className="cooking-image"
-      />
-      <h1 className="empty-cart-heading">No Orders Yet!</h1>
-      <p className="empty-cart-description">
-        Your cart is empty. Add something from the menu.
-      </p>
-      <button
-        type="button"
-        className="order-now-button"
-        onClick={this.orderNowClicked}
-      >
-        Order Now
-      </button>
-    </div>
+  renderCart = () => (
+    <MainContext.Consumer>
+      {value => {
+        const {cartList, clearCartList} = value
+        const {orderPlace} = this.state
+        const totalCost = () => {
+          const priceList = cartList.map(each => each.count * each.cost)
+          const reducer = (previousValue, currentValue) =>
+            previousValue + currentValue
+          const price = priceList.reduce(reducer)
+          return (
+            <h1
+              className="Rupees"
+              data-testid="total-price"
+            >{`${price}.00`}</h1>
+          )
+        }
+        const onOrderPlaced = () => {
+          localStorage.clear()
+          this.setState(prevState => ({
+            orderPlace: !prevState.orderPlace,
+          }))
+          clearCartList()
+        }
+
+        if (cartList.length === 0 && orderPlace === false) {
+          return (
+            <div className="NoItem">
+              <img
+                className="EmptyImg"
+                alt="empty cart"
+                src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1633225925/tastyKitchen/Layer_2_pt2cfs.png"
+              />
+              <h1 className="NoOrder">No Orders Yet!</h1>
+              <p className="Empty">
+                Your cart is empty. Add something from the menu.
+              </p>
+              <button
+                className="OrderBtn"
+                onClick={this.onOrderNow}
+                type="button"
+              >
+                Order Now
+              </button>
+            </div>
+          )
+        }
+
+        if (orderPlace) {
+          return (
+            <div>
+              <div className="PaymentMain">
+                <FaCheckCircle fontSize={45} color="#22C55E" />
+                <h1 className="PayHeading">Payment Successful</h1>
+                <p className="ThankU">
+                  Thank you for ordering <br /> Your payment is successfully
+                  completed.
+                </p>
+                <Link to="/">
+                  <button className="HomeBtn" type="button">
+                    Go To Home Page
+                  </button>
+                </Link>
+              </div>
+            </div>
+          )
+        }
+        return (
+          <div className="TotalPriceCon">
+            <div className="PriceCon">
+              <ul className="CartHeading">
+                <li>Item</li>
+                <li>Quantity</li>
+                <li>Price</li>
+              </ul>
+              <ul className="CartItemsList">
+                {cartList.map(each => (
+                  <li className="CartItemLi" key={each.id}>
+                    <CartItem item={each} />
+                  </li>
+                ))}
+              </ul>
+              <hr className="Hr" />
+              <div className="PriceLine">
+                <h1 className="Cost">Order Total :</h1>
+                <div className="Rupees">
+                  <BiRupee /> {totalCost()}
+                </div>
+              </div>
+              <button
+                className="PlaceOrder"
+                onClick={onOrderPlaced}
+                type="button"
+              >
+                Place Order
+              </button>
+            </div>
+            <Footer />
+          </div>
+        )
+      }}
+    </MainContext.Consumer>
   )
 
-  renderCartComponents = () => {
-    const {totalAmount, getFoodItemsData} = this.state
-
-    if (totalAmount === 0) {
-      this.showTotalAmount()
-    }
-
-    return (
-      <>
-        <div className="cart-bg-container">
-          <ul className="cart-header-container">
-            <li className="cart-heading">Item</li>
-            <li className="cart-heading">Quantity</li>
-            <li className="cart-heading">Price</li>
-          </ul>
-          <div className="cart-food-items-container">
-            {getFoodItemsData.map(eachItem => (
-              <CartItem
-                key={eachItem.foodId}
-                foodItemList={eachItem}
-                updatedAddTotalAmount={this.updatedAddTotalAmount}
-                updatedSubTotalAmount={this.updatedSubTotalAmount}
-              />
-            ))}
-          </div>
-          <p className="cart-dashed-border">{}</p>
-          <div className="cart-order-total-container">
-            <h1 className="cart-order-total-text">Order Total:</h1>
-            <h1 className="cart-order-total-amount">
-              <FaRupeeSign className="cart-total-rupee" />
-              {totalAmount}.00
-            </h1>
-          </div>
-        </div>
-        <div className="cart-confirm-button-container">
-          <button
-            type="button"
-            className="confirm-order-button"
-            onClick={this.onClickConfirm}
-          >
-            Confirm Order
-          </button>
-        </div>
-        <Footer />
-      </>
-    )
-  }
-
   render() {
-    const {getFoodItemsData} = this.state
-
     return (
-      <>
-        <Header chosen="cart" />
-        {getFoodItemsData === null
-          ? this.renderEmptyCart()
-          : this.renderCartComponents()}
-      </>
+      <div className="CartMain">
+        <Header />
+        <div className="CartCon">{this.renderCart()}</div>
+      </div>
     )
   }
 }

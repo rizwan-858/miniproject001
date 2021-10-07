@@ -1,47 +1,36 @@
+import {Component} from 'react'
 import {
   FaPinterestSquare,
   FaInstagram,
-  FaTwitter,
   FaFacebookSquare,
+  FaTwitter,
 } from 'react-icons/fa'
 
 import './index.css'
 
-const Footer = () => (
-  <div className="footer-container">
-    <div className="footer-website-container">
-      <img
-        src="https://res.cloudinary.com/rizwan987/image/upload/v1633272401/footerLogo_btgo3d.png"
-        alt="website-footer-logo"
-        className="footer-website-logo"
-      />
-      <h1 className="footer-website-name">Tasty Kitchens</h1>
-    </div>
-    <p className="footer-website-desktop-description">
-      The only thing we are are serious about is food.
-    </p>
-    <p className="footer-website-mobile-description">
-      The only thing we are are serious about is food. Contact us on
-    </p>
-    <div className="footer-social-media-container">
-      <FaPinterestSquare
-        testId="pintrest-social-icon"
-        className="footer-social-media-icon"
-      />
-      <FaInstagram
-        testId="instagram-social-icon"
-        className="footer-social-media-icon"
-      />
-      <FaTwitter
-        testId="twitter-social-icon"
-        className="footer-social-media-icon"
-      />
-      <FaFacebookSquare
-        testId="facebook-social-icon"
-        className="footer-social-media-icon"
-      />
-    </div>
-  </div>
-)
-
+class Footer extends Component {
+  render() {
+    return (
+      <div className="FooterMain">
+        <div className="FooterLogoCon">
+          <img
+            className="FooterLogo"
+            alt="website-footer-logo"
+            src="https://res.cloudinary.com/dclxp4bb4/image/upload/v1633020655/tastyKitchen/Group_7420_ervtdz.png"
+          />
+          <h1>Tasty Kitchen</h1>
+        </div>
+        <p className="Motto">
+          The only thing we are serious about is food. Contact us on
+        </p>
+        <div className="SocialNetworkIcon">
+          <FaPinterestSquare data-testid="pintrest-social-icon" />
+          <FaInstagram data-testid="instagram-social-icon" />
+          <FaTwitter data-testid="twitter-social-icon" />
+          <FaFacebookSquare data-testid="facebook-social-icon" />
+        </div>
+      </div>
+    )
+  }
+}
 export default Footer

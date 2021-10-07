@@ -1,74 +1,62 @@
-.footer-container {
-  width: 100vw;
+.FooterMain {
   background-color: #0f172a;
+  width: 100%;
+  margin-top: 40px;
+  color: #ffffff;
+  padding: 50px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
 }
-
-.footer-website-container {
+.FooterLogoCon {
   display: flex;
   align-items: center;
-}
-
-.footer-website-logo {
-  height: 34px;
-  width: 39px;
-  margin-right: 10px;
-}
-
-.footer-website-name {
-  font-family: DM Sans;
+  font-family: 'DM Sans';
+  font-size: 28px;
   font-style: italic;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 48px;
-
-  color: #ffffff;
+  font-weight: 400;
 }
-
-.footer-website-desktop-description {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 32px;
-  color: #ffffff;
-}
-
-.footer-website-mobile-description {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 32px;
-  color: #ffffff;
-}
-
-.footer-social-media-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 350px;
-  margin-top: 30px;
-}
-
-.footer-social-media-icon {
-  height: 48px;
-  width: 48px;
-  color: #ffffff;
-}
-
-@media screen and (max-width: 576px) {
-  .footer-website-desktop-description {
-    display: none;
+@media (max-width: 768px) {
+  .FooterLogoCon {
+    font-size: 15px;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .footer-website-mobile-description {
-    display: none;
+.FooterLogo {
+  width: 80px;
+  margin: 10px;
+}
+@media (max-width: 768px) {
+  .FooterLogo {
+    width: 40px;
+    margin: 5px;
+  }
+}
+.Motto {
+  font-family: 'DM Sans';
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .Motto {
+    font-size: 12px;
+    align-content: center;
+  }
+}
+
+.SocialNetworkIcon {
+  font-size: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin-top: 30px;
+}
+@media (max-width: 768px) {
+  .SocialNetworkIcon {
+    width: 60%;
+    font-size: 30px;
   }
 }

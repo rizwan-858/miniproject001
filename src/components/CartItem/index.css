@@ -1,102 +1,84 @@
-.cart-item-food-container {
-  list-style-type: none;
-  padding-left: 0;
+.CartItemMain {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+}
 
+.CartItemImg {
+  min-width: 150px;
+  max-width: 150px;
+  height: 100px;
+  border-radius: 5px;
+}
+.CartItemName {
+  font-family: 'DM Sans';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  margin-left: 10px;
+  min-width: 24%;
+  max-width: 24%;
+}
+@media (max-width: 768px) {
+  .CartItemName {
+    margin-bottom: 5px;
+    margin-left: 0;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.20000000298023224px;
+    max-width: 100%;
+  }
+}
+.CartItemCost {
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #ffa412;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  left: -3%;
+  width: 10%;
+}
+@media (max-width: 768px) {
+  .CartItemCost {
+    left: 0;
+  }
+}
+
+.QAndP {
   display: flex;
   justify-content: space-between;
-}
-
-.cart-food-item-image-and-name-container {
-  display: flex;
   align-items: center;
-
-  width: 280px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .QAndP {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px;
+    margin-left: 5px;
+  }
 }
 
-.cart-food-item-image {
-  height: 100px;
-  width: 136px;
-
-  border-radius: 8px;
-  margin-right: 8px;
-
-  flex-shrink: 0;
+.CounterComp {
+  position: relative;
+  left: -11%;
 }
-
-.cart-food-item-name {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-
-  letter-spacing: 0.2px;
-
-  color: #183b56;
-}
-
-.cart-food-item-quantity-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 280px;
-}
-
-.cart-food-quantity-button {
-  border: 0.75px solid #475569;
-  border-radius: 2.25px;
-
-  height: 18px;
-  width: 18px;
-
-  cursor: pointer;
-  color: #3e4c59;
-  background-color: transparent;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 4px;
-}
-
-.cart-food-quantity-text {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-
-  color: #475569;
-
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.food-item-cost-container {
-  width: 280px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cart-item-rupee {
-  height: 14px;
-  color: #ffa412;
-}
-
-.cart-food-item-cost {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 24px;
-
-  color: #ffa412;
-
-  margin-left: -25px;
-
-  display: flex;
-  align-items: center;
+@media (max-width: 768px) {
+  .CounterComp {
+    left: 0;
+  }
 }
